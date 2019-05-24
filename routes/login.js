@@ -11,7 +11,7 @@ router.post('/', (req, res)=>{
   let inUser = req.body.username;
   let inPass = req.body.password;
 
-  query = 'SELECT * FROM tbus '+
+  query = 'SELECT * FROM TBUS '+
           'WHERE USUARIO = "'+inUser+'"'+
           ' AND  CONTRASEÑA = "'+ inPass +'"'
           ' AND  ESTADO = "A";'  
