@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include includes/header -%>
+  <title>Escualapp: asignacion y control de cursos</title>
+  <link rel="stylesheet" href="stylesheets/sty_Login.css">
+</head>
+<body>
+  <div class="container">
+    <div class="row d-flex align-items-center" style="height: 100vh;">
+      <div class="col-md-6 d-flex flex-column align-items-center justify-content-center" style="height: 80%;">
+
+        <% if (Error) { %>
+          <div class="alert alert-danger text-center" role="alert" style="padding: 5px; width: 80%;">
+            <%= msnAlert %>
+          </div>
+        <% } %>
+
+        <h4>Inicia Sesión</h4>
+        <p class="text-muted" style="text-align:center;">Inicia sesion en tu cuenta usando tu correo o tu carné</p>
+
+        <form action="/login" method="post" id="Formlogin" style="width: 80%">
+          <div class="form-group">
+            <b>Usuario</b>
+            <input class="form-control" type="text" name="username" id="username" placeholder="Ingresa tu email o tu carné">
+          </div>
+
+          <div class="form-group">  
+            <b>Contraseña</b>          
+            <div class="input-group">
+              <input name="password" id="pwdinput" type="password" class="form-control" placeholder="Ingresa tu contraseña" aria-describedby="button-addon2">
+              <div class="input-group-append">
+                <button class="btn" type="button" id="button-addon2" style="display: flex">
+                    <i class="material-icons" id="password-eye"> remove_red_eye </i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group d-flex justify-content-center">
+            <a href="/forgot" >Olvidé mi contraseña</a>
+          </div>
+
+          <div class="form-group">
+            <button class="btn btn-primary btn-block">Iniciar Sesión</button>
+          </div>
+
+        </form>
+
+      </div>
+
+      <div class="col-md-6 pm-signup bg-primary d-none d-sm-none d-md-block" style="height: 80%;">
+        <div class="pm-SignupCont text-light">
+          <h4>ESCUELAPP</h4>
+          <p class="text-muted-light text-center">Lleva el control de tus cursos y de tus alumnos donde quiera que estes.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%- include includes/scripts -%>
+  <script src="javascripts/scr_login.js"></script>
+</body>
+</html>

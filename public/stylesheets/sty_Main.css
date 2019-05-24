@@ -1,0 +1,31 @@
+.pm-container{
+  width: 98%;
+}
+.pm-optionCont{
+  display: flex;
+}
+.pm-brandCont{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.pm-userCont{
+  margin-left: 2em;
+}
+@media (max-width: 971px){
+  .pm-optionCont{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+  .pm-userCont{
+    margin-left: 0em;
+  }
+}
+
+.grid-container{
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: 1fr;
+}

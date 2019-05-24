@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <%- include includes/header -%>
+    <title>Escualapp: asignacion y control de cursos</title>
+    <link rel="stylesheet" href="stylesheets/sty_Main.css">
+    <link href='fullcalendar/core/main.css' rel='stylesheet' />
+    <link href='fullcalendar/daygrid/main.css' rel='stylesheet' />
+
+    <script src='fullcalendar/core/main.js'></script>
+    <script src='fullcalendar/daygrid/main.js'></script>
+  </head>
+  <body>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand .d-sm-none .d-md-block" href="#">
+          <img src="/images/school.png" width="28" height="28" class="d-inline-block align-top" alt="">
+          Escuelapp
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navContent" aria-controls="navContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+          <div class="collapse navbar-collapse" id="navContent">
+            <div class="d-md-flex justify-content-end pm-container">             
+
+              <div class="pm-optionCont">
+                <div class="navbar-nav">
+                  <div class="nav-item"><a href="#" class="nav-link">HOME</a></div>
+                </div>
+
+                <% if (lvl == 1) { %>
+                  <div class="navbar-nav">
+                    <div class="nav-item"><a href="#" class="nav-link">ASISTENCIAS</a></div>
+                  </div>
+
+                <% }else { %>
+                  <div class="navbar-nav">
+                    <div class="nav-item"><a href="#" class="nav-link">GRADOS</a></div>
+                  </div>
+
+                <% } %>
+
+                <div class="navbar-nav">
+                  <div class="nav-item"><a href="#" class="nav-link">NOTAS</a></div>
+                </div>
+
+                <div class="navbar-nav  d-sm-block d-md-none">
+                  <div class="nav-item"><a href="#" class="nav-link">AJUSTES</a></div>
+                </div>
+
+                <div class="navbar-nav d-sm-block d-md-none">
+                  <div class="nav-item"><a href="main/CerrarSesion" class="nav-link">CERRAR SESION</a></div>
+                </div>
+              </div>
+
+              <div class="pm-userCont dropdown dropleft d-none d-md-block">
+                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="UsrOps" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img src="/images/user.png" alt="">
+                </button>
+                <div class="dropdown-menu" aria-labelledby="UsrOps">
+                  <a class="dropdown-item" href="#">Ajustes</a>
+                  <a class="dropdown-item" href="main/CerrarSesion">Cerrar Sesion</a>
+                </div>
+              </div>
+              
+
+
+            </div> 
+          </div>
+      </nav>
+
+      <div class="container ">
+        <div class="row ">
+          <div class="col-md-12">
+            <div class="jumbotron jumbotron-fluid">
+              <div class="container">
+                <h1 class="display-4">Bienvenido! <%=user%></h1>
+                <p class="lead">Administra y actualiza las notas de tus alumnos, de forma sencilla.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">        
+
+          <div class="col-md-8">
+            <div class="grid-container">
+
+                <% if (lvl == 0) {%>
+                  <div class="card text-white bg-primary">
+                    <div class="card-body">
+                      <h5 class="card-title">Grados</h5>
+                      <p class="card-text">Visualiza todos los grados asignados a impartir.</p>
+                    </div>
+                  </div>  
+                  
+                  <div class="card text-white bg-secondary">
+                    <div class="card-body">
+                      <h5 class="card-title">Cursos</h5>
+                      <p class="card-text">Visualiza todos los cursos asignados a impartir.</p>
+                    </div>
+                  </div>
+                  
+                  <div class="card text-white bg-success">
+                    <div class="card-body">
+                      <h5 class="card-title">Notas</h5>
+                      <p class="card-text">Ingreso de notas por alumnos.</p>
+                    </div>
+                  </div>
+                <% } %>
+
+                <% if (lvl == 1) {%>
+                  <div class="card text-white bg-success">
+                    <div class="card-body">
+                      <h5 class="card-title">Notas</h5>
+                      <p class="card-text">Mira tus notas por semestre y curso.</p>
+                    </div>
+                  </div>  
+                  
+                  <div class="card text-white bg-danger">
+                    <div class="card-body">
+                      <h5 class="card-title">Cursos</h5>
+                      <p class="card-text">Mira tus cursos asignados</p>
+                    </div>
+                  </div>
+
+                  <div class="card text-white bg-warning">
+                    <div class="card-body">
+                      <h5 class="card-title">Asignaciones</h5>
+                      <p class="card-text">Asignacion de cursos disponibles.</p>
+                    </div>
+                  </div>
+                <% } %>
+
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div id='calendar'></div>
+            </div>
+        </div>
+
+        
+        
+      </div>
+
+      
+
+    <%- include includes/scripts -%>
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function() {
+          var calendarEl = document.getElementById('calendar');
+  
+          var calendar = new FullCalendar.Calendar(calendarEl, {
+            plugins: [ 'dayGrid' ]
+          });
+  
+          calendar.render();
+        });
+  
+      </script>
+    <script src="/javascripts/src_main.js"></script>
+  </body>
+</html>

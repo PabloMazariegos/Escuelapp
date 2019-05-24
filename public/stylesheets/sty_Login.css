@@ -1,0 +1,38 @@
+.pm-signup::after{
+  content: '';
+  background: white;
+  width: 100px;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  transform: skew(185deg);
+}
+.pm-signup::before{
+  content: '';
+  background: white;
+  width: 50px;
+  height: 100%;
+  position: absolute;
+  left:  0;
+}
+
+.pm-SignupCont{
+  width: calc(100% - 125px);
+  height: 100%;
+  position: absolute;
+  left: 125px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#button-addon2{
+  border: 1px solid rgb(206, 212, 218);
+  color: #ced4da;
+  transition: 0.3s;
+}
+#button-addon2:hover{
+  color: black;
+  
+}
