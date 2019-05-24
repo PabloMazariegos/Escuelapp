@@ -1,7 +1,7 @@
 var mysql = require('mysql');
 
 var cnx = {
-  host: '35.222.62.133',
+  sockePath: 'escuelapp-240604:us-central1:bdescuelapp',
   user: 'root',
   password: '159515',
   database: 'BD_ESCUELAPP'
