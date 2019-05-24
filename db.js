@@ -1,7 +1,7 @@
 var mysql = require('mysql');
 
 var cnx = {
-  host: 'localhost',
+  host: '35.222.62.133',
   user: 'root',
   password: '159515',
   database: 'bd_escuelapp',
