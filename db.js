@@ -1,10 +1,10 @@
 var mysql = require('mysql');
 
 var cnx = {
-  host: 'localhost',
+  sockePath: 'escuelapp-240604:us-central1:bdescuelapp',
   user: 'root',
   password: '159515',
-  database: 'bd_escuelapp',
+  database: 'BD_ESCUELAPP',
 }
 
 var SQLpool = mysql.createPool(cnx);

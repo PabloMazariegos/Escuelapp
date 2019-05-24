@@ -27,6 +27,7 @@ router.post('/', (req, res)=>{
 
     sql.query(query, (sql_err, sql_res)=>{
       if(sql_err){
+        console.log(sql_err)
         res.render('index', { 
           title: 'Escualapp: asignacion y control de cursos',
           msnAlert: sql_err.sqlMessage,
