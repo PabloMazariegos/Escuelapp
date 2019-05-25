@@ -28,9 +28,13 @@
                   <div class="nav-item"><a href="#" class="nav-link">HOME</a></div>
                 </div>
 
-                <% if (lvl == 1) { %>
+                <% if (lvl == 0) { %>
                   <div class="navbar-nav">
-                    <div class="nav-item"><a href="#" class="nav-link">ASISTENCIAS</a></div>
+                    <div class="nav-item"><a href="#" class="nav-link">PERSONAL</a></div>
+                    <div class="nav-item"><a href="#" class="nav-link">MAESTROS</a></div>
+                    <div class="nav-item"><a href="#" class="nav-link">ALUMNOS</a></div>
+                    <div class="nav-item"><a href="#" class="nav-link">INSCRIPCIONES</a></div>
+                    <div class="nav-item"><a href="#" class="nav-link">AJUSTES GENERALES</a></div>
                   </div>
 
                 <% }else { %>
@@ -40,12 +44,8 @@
 
                 <% } %>
 
-                <div class="navbar-nav">
-                  <div class="nav-item"><a href="#" class="nav-link">NOTAS</a></div>
-                </div>
-
                 <div class="navbar-nav  d-sm-block d-md-none">
-                  <div class="nav-item"><a href="#" class="nav-link">AJUSTES</a></div>
+                  <div class="nav-item"><a href="#" class="nav-link">AJUSTES USUARIO</a></div>
                 </div>
 
                 <div class="navbar-nav d-sm-block d-md-none">
@@ -85,50 +85,56 @@
           <div class="col-md-8">
             <div class="grid-container">
 
+                <!--ADMINISTRADORES-->
                 <% if (lvl == 0) {%>
                   <div class="card text-white bg-primary">
                     <div class="card-body">
-                      <h5 class="card-title">Grados</h5>
-                      <p class="card-text">Visualiza todos los grados asignados a impartir.</p>
+                      <h5 class="card-title">Personal</h5>
+                      <p class="card-text">Visualiza todos los grados asignados</p>
                     </div>
                   </div>  
                   
                   <div class="card text-white bg-secondary">
                     <div class="card-body">
-                      <h5 class="card-title">Cursos</h5>
+                      <h5 class="card-title">Maestros</h5>
                       <p class="card-text">Visualiza todos los cursos asignados a impartir.</p>
                     </div>
                   </div>
                   
                   <div class="card text-white bg-success">
                     <div class="card-body">
-                      <h5 class="card-title">Notas</h5>
-                      <p class="card-text">Ingreso de notas por alumnos.</p>
+                      <h5 class="card-title">Alumnos</h5>
+                      <p class="card-text">Visualizacion de alumnos.</p>
+                    </div>
+                  </div>
+
+                  <div class="card text-white bg-warning">
+                    <div class="card-body">
+                      <h5 class="card-title">Inscripciones</h5>
+                      <p class="card-text">Inscripcion de alumnos y asignacion de seccion</p>
+                    </div>
+                  </div>
+
+                  <div class="card text-white bg-danger">
+                    <div class="card-body">
+                      <h5 class="card-title">Ajustes Generales</h5>
+                      <p class="card-text">Ajustes generales de toda la aplicacion.</p>
                     </div>
                   </div>
                 <% } %>
 
-                <% if (lvl == 1) {%>
-                  <div class="card text-white bg-success">
-                    <div class="card-body">
-                      <h5 class="card-title">Notas</h5>
-                      <p class="card-text">Mira tus notas por semestre y curso.</p>
-                    </div>
-                  </div>  
-                  
+                <!--INGRESA NOTAS-->
+                <% if (lvl == 1) {%>                  
                   <div class="card text-white bg-danger">
                     <div class="card-body">
-                      <h5 class="card-title">Cursos</h5>
-                      <p class="card-text">Mira tus cursos asignados</p>
+                      <h5 class="card-title">Ingreso de notas</h5>
+                      <p class="card-text">Ingresa notas por grado o por alumnos</p>
                     </div>
                   </div>
+                <% } %>
 
-                  <div class="card text-white bg-warning ">
-                    <div class="card-body">
-                      <h5 class="card-title">Asignaciones</h5>
-                      <p class="card-text">Asignacion de cursos disponibles.</p>
-                    </div>
-                  </div>
+                <!--INSUMOS-->
+                <% if (lvl == 2) {%>                  
                 <% } %>
 
               </div>
