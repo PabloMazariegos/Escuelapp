@@ -15,6 +15,13 @@ body{
 .pm-userCont{
   margin-left: 2em;
 }
+.footer-prro{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
 @media (max-width: 971px){
   .pm-optionCont{
     display: flex;
@@ -23,6 +30,10 @@ body{
   }
   .pm-userCont{
     margin-left: 0em;
+  }
+  
+  .calendario{
+    margin-top: 3em
   }
 }
 
