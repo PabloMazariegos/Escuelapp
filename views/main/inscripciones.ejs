@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>INSCRIPCIONES</title>
+  <link rel="stylesheet" href="stylesheets/main/sty_inscripciones.css">
+  <%- include ../includes/header -%>
+</head>
+<body style="margin-top:70px">
+  <%- include ../includes/navbar -%>
+
+    <div class="container p-5">
+      <div class="row">
+        <div class="col-md-12 border-bottom border-warning">
+          <h3>INSCRIPCIONES</h3>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col-md-12">
+          <form action="inscripciones/new" method="POST">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label>Nombre</label>
+                <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre del alumno.">
+              </div>
+              <div class="form-group col-md-6">
+                <label>Apellido</label>
+                <input type="text" name="apellido" id="apellido" class="form-control" placeholder="Apellido del alumno.">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label>Padre Asociado</label>
+                <input type="text" name="padre" id="padre" class="form-control" placeholder="Nombre del padre.">
+              </div>
+              <div class="form-group col-md-6">
+                <label>Telefono</label>
+                <input type="number" name="tel" id="tel" class="form-control" placeholder="Telefono del alumno.">
+              </div>
+            </div>
+
+            <div class="form-row pm-btn mt-5">
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary">PROCESAR</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      
+      <% if (msn) { %>
+      <div class="row">
+        <div class="col-md-12">
+            <% if (tipo == "success") { %>
+              <div class="alert alert-success text-center" role="alert" style="padding: 5px; width: 100%;">
+                <%= msnText %>
+              </div>            
+            <% } %>
+
+            <% if (tipo == "err") { %>
+              <div class="alert alert-danger text-center" role="alert" style="padding: 5px; width: 100%;">
+                <%= msnText %>
+              </div>            
+            <% } %>
+        </div>
+      </div>
+      <% } %>
+    </div>
+
+  <%- include ../includes/footer -%>
+  <%- include ../includes/scripts -%>
+  <script src="/javascripts/main/scr_inscripciones.js"></script>
+</body>
+</html>

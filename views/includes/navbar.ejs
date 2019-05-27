@@ -1,0 +1,58 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand .d-sm-none .d-md-block" href="#">
+      <img src="/images/school.png" width="28" height="28" class="d-inline-block align-top" alt="">
+      Escuelapp
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navContent" aria-controls="navContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+      <div class="collapse navbar-collapse" id="navContent">
+        <div class="d-md-flex justify-content-end pm-container-nav">             
+
+          <div class="pm-optionCont-nav">
+            <div class="navbar-nav">
+              <div class="nav-item"><a href="/main" class="nav-link">HOME</a></div>
+            </div>
+
+            <% if (lvl == 0) { %>
+              <div class="navbar-nav">
+                <div class="nav-item"><a href="main/personal" class="nav-link">PERSONAL</a></div>
+                <div class="nav-item"><a href="main/maestros" class="nav-link">PERSONAL</a></div>
+                <div class="nav-item"><a href="main/alumnos" class="nav-link">ALUMNOS</a></div>
+                <div class="nav-item"><a href="main/inscripciones" class="nav-link">INSCRIPCIONES</a></div>
+                <div class="nav-item"><a href="main/ajustesgenerales" class="nav-link">AJUSTES GENERALES</a></div>
+                <div class="nav-item"><a href="main/ingresonotas" class="nav-link">NOTAS</a></div>
+              </div>
+            <% } %>
+
+            <% if (lvl==1) {%>
+              <div class="navbar-nav">
+                  <div class="nav-item"><a href="main/ingresonotas" class="nav-link">NOTAS</a></div>
+              </div>
+            <% } %>
+
+            <div class="navbar-nav  d-sm-block d-md-none">
+              <div class="nav-item"><a href="main/ajustes" class="nav-link">AJUSTES USUARIO</a></div>
+            </div>
+
+            <div class="navbar-nav d-sm-block d-md-none">
+              <div class="nav-item"><a href="main/CerrarSesion" class="nav-link">CERRAR SESION</a></div>
+            </div>
+          </div>
+
+          <div class="pm-userCont-nav dropdown dropleft d-none d-md-block">
+            <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="UsrOps" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="/images/user.png" alt="">
+            </button>
+            <div class="dropdown-menu" aria-labelledby="UsrOps">
+              <a class="dropdown-item" href="main/ajustes">Ajustes</a>
+              <a class="dropdown-item" href="main/CerrarSesion">Cerrar Sesion</a>
+            </div>
+          </div>
+          
+
+
+        </div> 
+      </div>
+  </nav>

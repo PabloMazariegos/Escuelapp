@@ -1,0 +1,9 @@
+.pm-optionCont-nav{
+  display: flex;
+}
+.pm-container-nav{
+  width: 98%;
+}
+.pm-userCont-nav{
+  margin-left: 2em;
+}

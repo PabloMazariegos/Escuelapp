@@ -15,12 +15,7 @@ body{
 .pm-userCont{
   margin-left: 2em;
 }
-.footer-prro{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-}
+
 
 @media (max-width: 971px){
   .pm-optionCont{
@@ -42,4 +37,7 @@ body{
   grid-gap: 5px;
   grid-template-columns: 1fr 1fr;
   grid-auto-rows: 1fr;
+}
+.grid-container:nth-of-type(1){
+  height: 100%;
 }

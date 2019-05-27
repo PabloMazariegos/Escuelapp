@@ -13,7 +13,7 @@ router.post('/', (req, res)=>{
 
   query = 'SELECT * FROM TBUS '+
           'WHERE USUARIO = "'+inUser+'"'+
-          ' AND  CONTRASEÑA = "'+ inPass +'"'
+          ' AND  PASS = "'+ inPass +'"'
           ' AND  ESTADO = "A";'  
 
   if(inUser == "" || inPass == ""){

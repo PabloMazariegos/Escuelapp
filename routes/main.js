@@ -9,7 +9,8 @@ router.get('/', function(req, res, next) {
 router.get('/CerrarSesion', (err, res)=>{
   res.clearCookie('token');
   res.redirect('/');
-})
+});
+
 
 
 module.exports = router;

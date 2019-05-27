@@ -10,64 +10,8 @@
     <script src='fullcalendar/core/main.js'></script>
     <script src='fullcalendar/daygrid/main.js'></script>
   </head>
-  <body style="margin-top:70px">
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <a class="navbar-brand .d-sm-none .d-md-block" href="#">
-          <img src="/images/school.png" width="28" height="28" class="d-inline-block align-top" alt="">
-          Escuelapp
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navContent" aria-controls="navContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-          <div class="collapse navbar-collapse" id="navContent">
-            <div class="d-md-flex justify-content-end pm-container">             
-
-              <div class="pm-optionCont">
-                <div class="navbar-nav">
-                  <div class="nav-item"><a href="#" class="nav-link">HOME</a></div>
-                </div>
-
-                <% if (lvl == 0) { %>
-                  <div class="navbar-nav">
-                    <div class="nav-item"><a href="#" class="nav-link">PERSONAL</a></div>
-                    <div class="nav-item"><a href="#" class="nav-link">MAESTROS</a></div>
-                    <div class="nav-item"><a href="#" class="nav-link">ALUMNOS</a></div>
-                    <div class="nav-item"><a href="#" class="nav-link">INSCRIPCIONES</a></div>
-                    <div class="nav-item"><a href="#" class="nav-link">AJUSTES GENERALES</a></div>
-                  </div>
-
-                <% }else { %>
-                  <div class="navbar-nav">
-                    <div class="nav-item"><a href="#" class="nav-link">GRADOS</a></div>
-                  </div>
-
-                <% } %>
-
-                <div class="navbar-nav  d-sm-block d-md-none">
-                  <div class="nav-item"><a href="#" class="nav-link">AJUSTES USUARIO</a></div>
-                </div>
-
-                <div class="navbar-nav d-sm-block d-md-none">
-                  <div class="nav-item"><a href="main/CerrarSesion" class="nav-link">CERRAR SESION</a></div>
-                </div>
-              </div>
-
-              <div class="pm-userCont dropdown dropleft d-none d-md-block">
-                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="UsrOps" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img src="/images/user.png" alt="">
-                </button>
-                <div class="dropdown-menu" aria-labelledby="UsrOps">
-                  <a class="dropdown-item" href="#">Ajustes</a>
-                  <a class="dropdown-item" href="main/CerrarSesion">Cerrar Sesion</a>
-                </div>
-              </div>
-              
-
-
-            </div> 
-          </div>
-      </nav>
+  <body >
+      <%- include includes/navbar -%>
 
       <div class="container ">
         <div class="row ">
@@ -87,50 +31,57 @@
 
                 <!--ADMINISTRADORES-->
                 <% if (lvl == 0) {%>
-                  <div class="card text-white bg-primary">
-                    <div class="card-body">
-                      <h5 class="card-title">Personal</h5>
-                      <p class="card-text">Visualiza todos los grados asignados</p>
-                    </div>
-                  </div>  
+                    <div class="card text-white bg-primary" onclick="javascript: href='main/personal'">
+                      <div class="card-body">
+                        <h5 class="card-title">Personal</h5>
+                        <p class="card-text">Visualiza todos los grados asignados</p>
+                      </div>
+                    </div>  
                   
-                  <div class="card text-white bg-secondary">
-                    <div class="card-body">
-                      <h5 class="card-title">Maestros</h5>
-                      <p class="card-text">Visualiza todos los cursos asignados a impartir.</p>
+                    <div class="card text-white bg-secondary" onclick="javascript: href='main/maestros'">
+                      <div class="card-body">
+                        <h5 class="card-title">Maestros</h5>
+                        <p class="card-text">Visualiza todos los cursos asignados a impartir.</p>
+                      </div>
                     </div>
-                  </div>
                   
-                  <div class="card text-white bg-success">
-                    <div class="card-body">
-                      <h5 class="card-title">Alumnos</h5>
-                      <p class="card-text">Visualizacion de alumnos.</p>
+                    <div class="card text-white bg-success" onclick="javascript: href='main/alumnos'">
+                      <div class="card-body">
+                        <h5 class="card-title">Alumnos</h5>
+                        <p class="card-text">Visualizacion de alumnos.</p>
+                      </div>
                     </div>
-                  </div>
 
-                  <div class="card text-white bg-warning">
-                    <div class="card-body">
-                      <h5 class="card-title">Inscripciones</h5>
-                      <p class="card-text">Inscripcion de alumnos y asignacion de seccion</p>
+                    <div class="card text-white bg-warning" onclick="location.href='/inscripciones'">
+                      <div class="card-body">
+                        <h5 class="card-title">Inscripciones</h5>
+                        <p class="card-text">Inscripcion de alumnos y asignacion de seccion</p>
+                      </div>
                     </div>
-                  </div>
 
-                  <div class="card text-white bg-danger">
-                    <div class="card-body">
-                      <h5 class="card-title">Ajustes Generales</h5>
-                      <p class="card-text">Ajustes generales de toda la aplicacion.</p>
+                    <div class="card text-white bg-info" onclick="javascript: href='main/ajustesgenerales'">
+                      <div class="card-body">
+                        <h5 class="card-title">Ajustes Generales</h5>
+                        <p class="card-text">Ajustes generales de toda la aplicacion.</p>
+                      </div>
                     </div>
-                  </div>
+
+                    <div class="card text-white bg-danger" onclick="javascript: href='main/ingresonotas'">
+                      <div class="card-body">
+                        <h5 class="card-title">Ingreso de notas</h5>
+                        <p class="card-text">Ingresa notas por grado o por alumnos</p>
+                      </div>
+                    </div>
                 <% } %>
 
                 <!--INGRESA NOTAS-->
-                <% if (lvl == 1) {%>                  
-                  <div class="card text-white bg-danger">
-                    <div class="card-body">
-                      <h5 class="card-title">Ingreso de notas</h5>
-                      <p class="card-text">Ingresa notas por grado o por alumnos</p>
-                    </div>
-                  </div>
+                <% if (lvl == 1) {%> 
+                    <div class="card text-white bg-danger" onclick="javascript: href='main/ingresonotas'">
+                      <div class="card-body">
+                        <h5 class="card-title">Ingreso de notas</h5>
+                        <p class="card-text">Ingresa notas por grado o por alumnos</p>
+                      </div>
+                    </div>                 
                 <% } %>
 
                 <!--INSUMOS-->
@@ -144,18 +95,9 @@
             </div>
         </div>
       </div>
-      <div class="container-fluid bg-dark text-light" style="height: 20vh; margin-top: 7em;">
-        <div class="row" style="height: 100%">
-          <div class="container">
-            <div class="col-md-12 footer-prro">
-              <img src="/images/logo-umg.png" alt="umg logo" style="width:80px">
-            </div>
-          </div>
-        </div>
-      </div>
 
       
-
+    <%- include includes/footer -%>
     <%- include includes/scripts -%>
     <script>
 
