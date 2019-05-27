@@ -15,16 +15,16 @@
               <div class="nav-item"><a href="/main" class="nav-link">HOME</a></div>
             </div>
 
+            <div class="navbar-nav">
             <% if (lvl == 0) { %>
-              <div class="navbar-nav">
                 <div class="nav-item"><a href="main/personal" class="nav-link">PERSONAL</a></div>
-                <div class="nav-item"><a href="main/maestros" class="nav-link">PERSONAL</a></div>
+                <div class="nav-item"><a href="main/maestros" class="nav-link">MAESTROS</a></div>
                 <div class="nav-item"><a href="main/alumnos" class="nav-link">ALUMNOS</a></div>
                 <div class="nav-item"><a href="main/inscripciones" class="nav-link">INSCRIPCIONES</a></div>
                 <div class="nav-item"><a href="main/ajustesgenerales" class="nav-link">AJUSTES GENERALES</a></div>
                 <div class="nav-item"><a href="main/ingresonotas" class="nav-link">NOTAS</a></div>
-              </div>
-            <% } %>
+                <% } %>
+            </div>
 
             <% if (lvl==1) {%>
               <div class="navbar-nav">
