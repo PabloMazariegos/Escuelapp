@@ -9,7 +9,7 @@ router.get('/', (req, res)=>{
           "FROM PERSONAL T1 "+
           "INNER JOIN AREA T2 "+
           "ON T1.AREA_ID_CATEGORIA = T2.ID_CATEGORIA "+
-          "WHERE T1.ESTADO = 'A'  AND T1.AREA_ID_CATEGORIA <> 1"
+          "WHERE T1.ESTADO = 'A'"
 
   sql.query(query, (sql_err, sql_res)=>{
     if(sql_err){
@@ -17,6 +17,39 @@ router.get('/', (req, res)=>{
       global.TIPO="err";
       global.MSNTEXT=sql_err.message;
       res.redirect('/personal')
+
+    }else{
+      res.render('main/personal', {
+        data:sql_res,
+        msn: global.MSN, 
+        tipo:global.TIPO, 
+        msnText:global.MSNTEXT
+      })
+
+      global.MSN=false;
+      global.TIPO="";
+      global.MSNTEXT='';
+    }
+  })
+})
+
+router.get('/filter/:ID', (req, res)=>{
+  console.log(req.params)
+  var area = 0
+  area =  req.params.ID;
+  query = "SELECT ID_PERSONAL, NOMBRE, APELLIDO, TELEFONO, T2.CATEGORIA "+
+          "FROM PERSONAL T1 "+
+          "INNER JOIN AREA T2 "+
+          "ON T1.AREA_ID_CATEGORIA = T2.ID_CATEGORIA "+
+          "WHERE T1.ESTADO = 'A' "+
+          "AND T1.AREA_ID_CATEGORIA = "+area+";"
+
+  sql.query(query, (sql_err, sql_res)=>{
+    if(sql_err){
+      global.MSN=true;
+      global.TIPO="err";
+      global.MSNTEXT=sql_err.message;
+      res.render('main/personal')
 
     }else{
       res.render('main/personal', {
@@ -53,4 +86,50 @@ router.get('/delete/:ID', (req, res)=>{
     }
   })
 })
+
+router.get('/update/:ID/:NOMBRE/:APELLIDO/:TELEFONO', (req, res)=>{
+  query = "UPDATE PERSONAL "+
+          "SET NOMBRE = '"+ req.params.NOMBRE   +"',"+
+          "APELLIDO = '"+   req.params.APELLIDO +"',"+
+          "TELEFONO = '"+   req.params.TELEFONO +"',"+
+          "AREA = '"+       req.params.AREA     +"' "+
+          "WHERE ID_PERSONAL = "+ req.params.ID;
+  
+  console.log(query)
+
+  sql.query(query, (sql_err, sql_res)=>{
+    if(sql_err){
+      global.MSN=true;
+      global.TIPO="err";
+      global.MSNTEXT=sql_err.message;
+      res.redirect('/personal')
+
+    }else{
+      global.MSN=true;
+      global.TIPO="success";
+      global.MSNTEXT='Modificado Exitosamente'
+      res.redirect('/personal')
+    }
+  })
+});
+
+router.post('/new', (req, res)=>{
+  console.log(req.body)
+  query = `INSERT INTO PERSONAL (NOMBRE, APELLIDO, TELEFONO, AREA_ID_CATEGORIA) VALUES ('${req.body.nombre}', '${req.body.apellido}', '${req.body.telefono}', ${req.body.area})`
+  sql.query(query, (sql_err, sql_res)=>{
+    if(sql_err){
+      global.MSN=true;
+      global.TIPO="err";
+      global.MSNTEXT=sql_err.message;
+      res.redirect('/personal')
+
+    }else{
+      global.MSN=true;
+      global.TIPO="success";
+      global.MSNTEXT='Ingresado exitosamente'
+      res.redirect('/personal')
+    }
+  })
+})
+
 module.exports =  router;

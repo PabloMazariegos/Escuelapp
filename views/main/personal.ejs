@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="stylesheets/main/sty_inscripciones.css">
+  <link rel="stylesheet" href="/stylesheets/main/sty_personal.css">
   <title>PERSONAL</title>
   <%- include ../includes/header -%>
 </head>
@@ -17,16 +17,38 @@
         <h3>PERSONAL</h3>
       </div>
     </div>
-    <div class="row mt-5">
+    <div class="row mt-2 d-print-none">
+      <div class="col-md-12 d-flex justify-content-between" >
+        <div class="combofilter">
+          <select class="custom-select" name="filtro" id="filtro">
+            <option value="">Seleccione</option>
+            <option value="0">TODOS</option>
+            <option value="1">DOCENTE</option>
+            <option value="2">CONTABILIDAD</option>
+            <option value="3">LIMPIEZA</option>
+            <option value="4">SEGURIDAD</option>
+          </select>
+        </div>
+        <div data-toggle="buttons">
+            <label class="btn btn-success btn-md" data-toggle="modal" data-target="#exampleModal">
+                <i class="material-icons"> add_circle_outline </i>
+            </label>
+            <label class="btn btn-dark btn-md" onclick="window.print();" >
+                <i class="material-icons"> print </i>
+            </label>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-3">
       <div class="col-md-12">
-        <div class="table-responsive table-striped">
+        <div class="table-responsive table-striped table-sm">
           <table class="table table-lg" style="font-size: 0.8em !important">
             <tr>
               <th>NOMBRE</th>
               <th>APELLIDO</th>
               <th>TELEFONO</th>
               <th>AREA</th>
-              <th>OPCION</th>
+              <th class="d-print-none">OPCION</th>
             </tr>
             <%
               for(var i=0; i<=data.length-1; i++){
@@ -35,17 +57,15 @@
             <tr>
               <% for(var reg in obj){ %> 
                 <% if (reg != 'ID_PERSONAL') { %> 
-                  <td>
-                    <%- obj[reg]%>
-                  </td>
+                    <td name="<%- obj.ID_PERSONAL%>"><%- obj[reg]%></td>
                 <% } %>                  
               <% } %>
-                <td>
+                <td class="d-print-none">
                   <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                      <label class="btn btn-danger btn-sm" onclick="location.href='/personal/delete/'+'<%- obj.ID_PERSONAL%>'">
+                      <label id="BTN<%- obj.ID_PERSONAL%>DEL" class="btn btn-danger btn-sm d-print-none" onclick="location.href='/personal/delete/'+'<%- obj.ID_PERSONAL%>'">
                           <i class="material-icons" style="height:5px;"> delete_forever </i>
                       </label>
-                      <label class="btn btn-primary btn-sm" onclick="location.href='/personal/update/'+'<%- obj.ID_PERSONAL%>'" >
+                      <label id="BTN<%- obj.ID_PERSONAL%>UP" class="btn btn-primary btn-sm d-print-none" onclick="Update('<%- obj.ID_PERSONAL%>')" >
                           <i class="material-icons" style="height:5px;"> autorenew </i>
                       </label>
                   </div>
@@ -77,6 +97,46 @@
       <% } %>
   </div>
 
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Nuevo Colaborador</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="personal/new" method="POST">
+            <div class="form-group">
+              <label>Nombre</label>
+              <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre del colaborador.">
+            </div>
+            <div class="form-group">
+              <label>Apellido</label>
+              <input type="text" name="apellido" id="apellido" class="form-control" placeholder="Apellido del colaborador.">
+            </div>
+            <div class="form-group">
+              <label>Telefono</label>
+              <input type="number" name="telefono" id="telefono" class="form-control" placeholder="Telefono del colaborador.">
+            </div>
+            <div class="form-group">
+              <label>Area</label>
+              <select class="custom-select" name="area" id="area">
+                <option value="1">DOCENTE</option>
+                <option value="2">CONTABILIDAD</option>
+                <option value="3">LIMPIEZA</option>
+                <option value="4">SEGURIDAD</option>
+              </select>
+            </div>
+            <div class="form-group d-flex justify-content-center">
+              <button id="btnSubmit" type="submit" class="btn btn-primary">Ingresar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
   
   <%- include ../includes/footer -%>

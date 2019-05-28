@@ -12,6 +12,7 @@ var loginRouter         = require('./routes/login');
 var mainRouter          = require('./routes/main');
 var inscripcionRouter   = require('./routes/inscripcionRouter');
 var personalRouter      = require('./routes/personal');
+var CerrarSesionRouter      = require('./routes/CerrarSesion');
 
 var app = express();
 
@@ -30,6 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/login', loginRouter)
+app.use('/CerrarSesionRouter', loginRouter)
 app.use('/main', jwt.ValidaToken , mainRouter);
 app.use('/inscripciones', jwt.ValidaToken , inscripcionRouter);
 app.use('/personal', jwt.ValidaToken , personalRouter);

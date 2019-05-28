@@ -9,5 +9,11 @@ router.get('/', function(req, res, next) {
   });
 });
 
+/* GET home page. */
+router.get('/CerrarSesion', (err, res)=>{
+  res.clearCookie('token');
+  res.redirect('/');
+});
+
 
 module.exports = router;
