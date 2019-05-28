@@ -5,6 +5,7 @@ var cnx = {
   user: 'root',
   password: '159515',
   database: 'ESCUELAPP_BD',
+  multipleStatements: true
 }
 
 var SQLpool = mysql.createPool(cnx);
