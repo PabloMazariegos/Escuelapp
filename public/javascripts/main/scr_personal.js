@@ -1,4 +1,5 @@
 const Update = (id)=>{
+
   var row = document.getElementsByName(id);
   var area = ''
   switch(row[3].innerText){
@@ -16,14 +17,22 @@ const Update = (id)=>{
     break;
   }
 
-  var NOMBRE= document.getElementById('nombre').value   =row[0].innerText;
-  var APELLIDO= document.getElementById('apellido').value =row[1].innerText;
-  var TELEFONO= document.getElementById('telefono').value =row[2].innerText;
-  var AREA= document.getElementById('area').value     =area;
+  var NOMBRE= document.getElementById('nombre')     
+  var APELLIDO= document.getElementById('apellido') 
+  var TELEFONO= document.getElementById('telefono') 
+  var AREA= document.getElementById('area')         
+  NOMBRE.value    =row[0].innerText;  
+  APELLIDO.value  =row[1].innerText;
+  TELEFONO .value =row[2].innerText;
+  AREA.value      =area; 
 
-  document.getElementById('btnSubmit').removeAttribute('type');
-  document.getElementById('btnSubmit').addEventListener('click', ()=>{
-    location.href=`/personal/update/${NOMBRE}/${APELLIDO}/${TELEFONO}/${AREA}`
+
+  document.getElementById('btnSubmit').style.display="none"
+  document.getElementById('btnUpdate').style.display="block"
+
+  document.getElementById('btnUpdate').addEventListener('click', ()=>{
+    window.location.href=`/personal/update/${NOMBRE.value}/${APELLIDO.value}/${TELEFONO.value}/${AREA.value}/${id}`
+    document.getElementById('btnUpdate').style.display="none"
   });
 
 
@@ -39,4 +48,8 @@ document.getElementById('filtro').addEventListener('change', ()=>{
   }else{
     location.href="/personal"
   }
+})
+
+document.getElementById('btnNuevo').addEventListener('click', ()=>{
+  document.getElementById('btnUpdate').style.display="none"
 })

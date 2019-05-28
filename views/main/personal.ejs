@@ -12,6 +12,24 @@
   <%- include ../includes/navbar -%>
 
   <div class="container p-3">
+    <% if (msn) { %>
+      <div class="row">
+        <div class="col-md-12">
+            <% if (tipo == "success") { %>
+              <div class="alert alert-success text-center" role="alert" style="padding: 5px; width: 100%;">
+                <%= msnText %>
+              </div>            
+            <% } %>
+
+            <% if (tipo == "err") { %>
+              <div class="alert alert-danger text-center" role="alert" style="padding: 5px; width: 100%;">
+                <%= msnText %>
+              </div>            
+            <% } %>
+        </div>
+      </div>
+      <% } %>
+
     <div class="row">
       <div class="col-md-12 border-bottom border-primary">
         <h3>PERSONAL</h3>
@@ -30,7 +48,7 @@
           </select>
         </div>
         <div data-toggle="buttons">
-            <label class="btn btn-success btn-md" data-toggle="modal" data-target="#exampleModal">
+            <label id="btnNuevo" class="btn btn-success btn-md" data-toggle="modal" data-target="#exampleModal">
                 <i class="material-icons"> add_circle_outline </i>
             </label>
             <label class="btn btn-dark btn-md" onclick="window.print();" >
@@ -78,23 +96,7 @@
       </div>
     </div>
 
-    <% if (msn) { %>
-      <div class="row">
-        <div class="col-md-12">
-            <% if (tipo == "success") { %>
-              <div class="alert alert-success text-center" role="alert" style="padding: 5px; width: 100%;">
-                <%= msnText %>
-              </div>            
-            <% } %>
-
-            <% if (tipo == "err") { %>
-              <div class="alert alert-danger text-center" role="alert" style="padding: 5px; width: 100%;">
-                <%= msnText %>
-              </div>            
-            <% } %>
-        </div>
-      </div>
-      <% } %>
+    
   </div>
 
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -107,7 +109,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <form action="personal/new" method="POST">
+          <form action="/personal/new" method="POST">
             <div class="form-group">
               <label>Nombre</label>
               <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre del colaborador.">
@@ -133,6 +135,9 @@
               <button id="btnSubmit" type="submit" class="btn btn-primary">Ingresar</button>
             </div>
           </form>
+          <div class="form-group d-flex justify-content-center d-none">
+            <button id="btnUpdate" class="btn btn-primary">Actualizar</button>
+          </div>
         </div>
       </div>
     </div>

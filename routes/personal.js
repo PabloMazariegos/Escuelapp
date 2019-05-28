@@ -87,13 +87,17 @@ router.get('/delete/:ID', (req, res)=>{
   })
 })
 
-router.get('/update/:ID/:NOMBRE/:APELLIDO/:TELEFONO', (req, res)=>{
+router.get('/update/:NOMBRE/:APELLIDO/:TELEFONO/:AREA/:ID', (req, res)=>{
+  var area = 0
+  var id = 0
+  area = req.params.AREA;
+  id = req.params.ID;
   query = "UPDATE PERSONAL "+
           "SET NOMBRE = '"+ req.params.NOMBRE   +"',"+
           "APELLIDO = '"+   req.params.APELLIDO +"',"+
           "TELEFONO = '"+   req.params.TELEFONO +"',"+
-          "AREA = '"+       req.params.AREA     +"' "+
-          "WHERE ID_PERSONAL = "+ req.params.ID;
+          "AREA_ID_CATEGORIA= "+area +" "+
+          "WHERE ID_PERSONAL = "+ id;
   
   console.log(query)
 
