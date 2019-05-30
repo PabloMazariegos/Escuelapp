@@ -41,12 +41,11 @@ router.get('/filter', (req,res)=>{
   && req.query.inFecha    ==''){
     res.redirect('/alumnos/mantenimiento')
   }
-  query = "SELECT ID_ALUMNO, NOMBRE, APELLIDO, PADRE, TELEFONO, FECHA_INSCRIPCION FROM ALUMNO "+
+  query = "SELECT ID_ALUMNO, NOMBRE, APELLIDO, PADRE, TELEFONO, DATE_FORMAT(FECHA_INSCRIPCION,'%Y/%m/%d') AS FECHA FROM ALUMNO "+
           "WHERE NOMBRE = '"            + req.query.inNombre   + "' OR "+
           "APELLIDO = '"                + req.query.inApellido + "' OR "+
           "TELEFONO = '"                + req.query.inTelefono + "' OR "+
           "FECHA_INSCRIPCION = '"       + req.query.inFecha + "'"
-  console.log(query)
   sql.query(query, (sql_err, sql_res)=>{
     if(sql_err){
       global.MSN=true;
