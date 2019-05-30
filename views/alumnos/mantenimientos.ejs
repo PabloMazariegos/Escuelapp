@@ -38,6 +38,7 @@
       <div class="row mt-2">
         <div class="col-md-12">
             <form action="/alumnos/filter" method="GET" class="form-inline d-flex justify-content-center">
+              <div class="pm-container" style="display: grid; grid-template-columns: 1fr 1fr; grid-gap: 5px;">
                 <div class="col-xs-6 mr-3">
                   <label class="sr-only" for="inNombre">Nombre</label>
                   <input type="text" class="form-control mb-2 mr-sm-2" name="inNombre" placeholder="Nombre" >
@@ -54,7 +55,7 @@
                   <label class="sr-only" for="inNombre">Fecha Inscripcion</label>
                   <input autocomplete="off" class="form-control mb-2 mr-sm-2" name="inFecha" placeholder="yyyy/mm/dd" >
                 </div>
-                
+              </div>
                 <button type="submit" class="btn btn-outline-success mb-2">Buscar</button>
               </form>
         </div>
