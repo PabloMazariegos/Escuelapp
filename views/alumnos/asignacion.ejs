@@ -37,24 +37,27 @@
       <div class="row mt-2">
         <div class="col-md-12">
           <form action="/alumnos/filter" method="GET" class="form-inline d-flex justify-content-center">
-              <div class="col-xs-6 mr-3">
-                <label class="sr-only" for="inCarne">Carne</label>
-                <input type="text" class="form-control mb-2 mr-sm-2" name="inCarne" placeholder="Carné" >
-              </div>
-              <div class="col-xs-6 mr-3">
-                <label class="sr-only" for="inNombre">Nombre</label>
-                <input type="text" class="form-control mb-2 mr-sm-2" name="inNombre" placeholder="Nombre" >
-              </div>
-              <div class="col-xs-6">
-                <label class="sr-only" for="inApellido">Apellido</label>
-                <input type="text" class="form-control mb-2 mr-sm-2" name="inApellido" placeholder="Apellido" >
-              </div>
-              <div class="col-xs-6">
-                <label class="sr-only" for="inGrado">Grado</label>
-                <input type="text" class="form-control mb-2 mr-sm-2" name="inGrado" placeholder="Grado" >
-              </div>
-              
-              <button type="submit" class="btn btn-outline-success mb-2">Buscar</button>
+              <div class="pm-container" style="display: grid; grid-template-columns: 1fr 1fr; grid-gap: 5px;">
+                  <div class="">
+                    <label class="sr-only" for="inCarne">Carne</label>
+                    <input type="text" class="form-control mb-2 mr-sm-2" name="inCarne" placeholder="Carné" >
+                  </div>
+                  <div class="">
+                    <label class="sr-only" for="inNombre">Nombre</label>
+                    <input type="text" class="form-control mb-2 mr-sm-2" name="inNombre" placeholder="Nombre" >
+                  </div>
+                  <div class="">
+                    <label class="sr-only" for="inApellido">Apellido</label>
+                    <input type="text" class="form-control mb-2 mr-sm-2" name="inApellido" placeholder="Apellido" >
+                  </div>
+                  <div class="">
+                    <label class="sr-only" for="inGrado">Grado</label>
+                    <input type="text" class="form-control mb-2 mr-sm-2" name="inGrado" placeholder="Grado" >
+                  </div>
+                </div>
+                <div class="">
+                  <button type="submit" class="btn btn-outline-success mb-2">Buscar</button>
+                </div>
             </form>
         </div>
       </div>
