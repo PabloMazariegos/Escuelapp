@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>ALUMNOS</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/stylesheets/main/sty_alumnos.css">
+    <%- include ../includes/header -%>
+  </head>
+  <body style="margin-top: 70px;">
+    <%- include ../includes/navbar -%>
+
+    <div class="container p-3">
+      <div class="row">
+        <div class="col-md-12 border-bottom border-success">
+          <h3>ALUMNOS</h3>
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col-md-6">
+          <div class="card text-white bg-primary mb-3" onclick="location.href='alumnos/mantenimiento'">
+            <div class="card-header">MANTENIMIENTO</div>
+            <div class="card-body">
+              <h5 class="card-title">Actualizacion de Informacion</h5>
+              <p class="card-text">Actualiza la informacion de tus alumnos inscritos.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card text-white bg-secondary mb-3" onclick="location.href='alumnos/asignacion'">
+            <div class="card-header">ASIGNACION</div>
+            <div class="card-body">
+              <h5 class="card-title">Seccion y Grado</h5>
+              <p class="card-text">Actualiza la asignacion de grado y seccion de tus alumnos inscritos.</p>
+            </div>
+          </div>
+        </div>
+      </div> 
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card text-white bg-danger mb-3">
+            <div class="card-header">NOTAS</div>
+            <div class="card-body">
+              <h5 class="card-title">Actualizacion de Notas</h5>
+              <p class="card-text">Actualiza la notas de tus alumnos inscritos.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card text-white bg-success mb-3">
+            <div class="card-header">REPORTES</div>
+            <div class="card-body">
+              <h5 class="card-title">Informacion de Alumnos</h5>
+              <p class="card-text">Exporta la informacion de tus alumnos inscritos.</p>
+            </div>
+          </div>
+        </div>
+      </div> 
+    </div>   
+      
+
+    <%- include ../includes/footer -%>
+    <%- include ../includes/scripts -%>
+    <script src="/javascripts/main/scr_alumnos.js"></script>
+  </body>
+</html>
