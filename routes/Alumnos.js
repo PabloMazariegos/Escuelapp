@@ -76,8 +76,6 @@ router.get('/update/:CARNE/:NOMBRE/:APELLIDO/:PADRE/:TELEFONO/:FECHA', (req, res
           "TELEFONO= '"+     req.params.TELEFONO +"', "+
           "FECHA_INSCRIPCION= '"+        req.params.FECHA +"' "+
           "WHERE ID_ALUMNO = "+ req.params.CARNE;
-  
-  console.log(query)
 
   sql.query(query, (sql_err, sql_res)=>{
     if(sql_err){
@@ -95,34 +93,9 @@ router.get('/update/:CARNE/:NOMBRE/:APELLIDO/:PADRE/:TELEFONO/:FECHA', (req, res
   })
 });
 
-router.get('/asignar/:ID_ALUMNO/:ID_GRADO', (req, res)=>{
-  query = "call ASIGNACION ('"+req.params.ID_ALUMNO + "','" +req.params.ID_GRADO +"')"
 
-  sql.query(query, (sql_err, sql_res)=>{
-    if(sql_err){
-      global.MSN=true;
-      global.TIPO="err";
-      global.MSNTEXT=sql_err.message;
-      res.redirect('/alumnos/mantenimiento')
-
-    }else{
-      global.MSN=true;
-      switch(sql_res[0][0].STAT){
-        case  'Grado con secciones llenas, no es posible asignar':
-          global.TIPO="err";
-        break;
-        case 'Cupo en grado lleno':
-          global.TIPO="err";
-        break;
-        default:
-          global.TIPO="success";
-        break;
-      }
-      global.MSNTEXT=sql_res[0][0].STAT;
-      res.redirect('/alumnos/mantenimiento')
-    }
-  })
-});
+//////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
 
 router.get('/asignacion', (req, res)=>{
     query = "SELECT "+
@@ -165,5 +138,105 @@ router.get('/asignacion', (req, res)=>{
     }
   })
 })
+
+router.get('/asignargrado/:ID_ALUMNO/:ID_GRADO', (req, res)=>{
+  query = "call ASIGNACION ('"+req.params.ID_ALUMNO + "','" +req.params.ID_GRADO +"')"
+
+  sql.query(query, (sql_err, sql_res)=>{
+    if(sql_err){
+      global.MSN=true;
+      global.TIPO="err";
+      global.MSNTEXT=sql_err.message;
+      res.redirect('/alumnos/asignacion')
+
+    }else{
+      global.MSN=true;
+      switch(sql_res[0][0].STAT){
+        case  'Grado con secciones llenas, no es posible asignar':
+          global.TIPO="err";
+        break;
+        case 'Cupo en grado lleno':
+          global.TIPO="err";
+        break;
+        default:
+          global.TIPO="success";
+        break;
+      }
+      global.MSNTEXT=sql_res[0][0].STAT;
+      res.redirect('/alumnos/asignacion')
+    }
+  })
+});
+
+router.get('/actualizargrado/:ID_ALUMNO/:ID_GRADO', (req, res)=>{
+  query = "call ACTUALIZA_ASIGNACION ('"+req.params.ID_ALUMNO + "','" +req.params.ID_GRADO +"')"
+
+  sql.query(query, (sql_err, sql_res)=>{
+    if(sql_err){
+      global.MSN=true;
+      global.TIPO="err";
+      global.MSNTEXT=sql_err.message;
+      res.redirect('/alumnos/asignacion')
+
+    }else{
+      global.MSN=true;
+      switch(sql_res[0][0].STAT){
+        case  'Grado con secciones llenas, no es posible asignar':
+          global.TIPO="err";
+        break;
+        case 'Cupo en grado lleno':
+          global.TIPO="err";
+        break;
+        default:
+          global.TIPO="success";
+        break;
+      }
+      global.MSNTEXT=sql_res[0][0].STAT;
+      res.redirect('/alumnos/asignacion')
+    }
+  })
+});
+
+router.get('/asignacion/filter', (req,res)=>{
+  var inGrado = req.query.inGrado;
+  var inSeccion =  req.query.inSeccion;
+
+  if(inGrado == "" || (inGrado=="" && inSeccion=="")){
+    res.redirect('/alumnos/asignacion')
+  }
+
+  if(inSeccion=="")
+    inSeccion = "null";
+
+  query ='call FILTROS_ASIGNACION("'+inGrado+'",'+inSeccion+')'
+
+  sql.query(query, (sql_err, sql_res)=>{
+    console.log(sql_res[0])
+    if(sql_err){
+      global.MSN=true;
+      global.TIPO="err";
+      global.MSNTEXT=sql_err.message;
+      res.render('alumnos/asignacion', {
+        data:sql_res,
+        msn: global.MSN, 
+        tipo:global.TIPO, 
+        msnText:global.MSNTEXT
+      })
+
+    }else{
+      res.render('alumnos/asignacion', {
+        data:sql_res[0],
+        msn: global.MSN, 
+        tipo:global.TIPO, 
+        msnText:global.MSNTEXT
+      })
+
+      global.MSN=false;
+      global.TIPO="";
+      global.MSNTEXT='';
+    }
+  })
+
+});
 
 module.exports =  router;
