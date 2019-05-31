@@ -13,6 +13,7 @@ var mainRouter          = require('./routes/main');
 var inscripcionRouter   = require('./routes/inscripcionRouter');
 var personalRouter      = require('./routes/personal');
 var CerrarSesionRouter      = require('./routes/CerrarSesion');
+var AlumnosRouter      = require('./routes/Alumnos');
 
 var app = express();
 
@@ -35,6 +36,7 @@ app.use('/CerrarSesionRouter', loginRouter)
 app.use('/main', jwt.ValidaToken , mainRouter);
 app.use('/inscripciones', jwt.ValidaToken , inscripcionRouter);
 app.use('/personal', jwt.ValidaToken , personalRouter);
+app.use('/alumnos', jwt.ValidaToken , AlumnosRouter);
 
 
 // catch 404 and forward to error handler

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>ALUMNOS</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/stylesheets/main/sty_alumnos.css">
+    <%- include ../includes/header -%>
+  </head>
+  <body style="margin-top: 70px;">
+    <%- include ../includes/navbar -%>
+
+    <div class="container p-3">
+      <% if (msn) { %>
+      <div class="row">
+        <div class="col-md-12">
+            <% if (tipo == "success") { %>
+              <div class="alert alert-success text-center" role="alert" style="padding: 5px; width: 100%;">
+                <%= msnText %>
+              </div>            
+            <% } %>
+
+            <% if (tipo == "err") { %>
+              <div class="alert alert-danger text-center" role="alert" style="padding: 5px; width: 100%;">
+                <%= msnText %>
+              </div>            
+            <% } %>
+        </div>
+      </div>
+      <% } %>
+
+      <div class="row">
+        <div class="col-md-12 border-bottom border-success">
+          <h3>ALUMNOS</h3>
+        </div>
+      </div>
+      
+      <div class="row mt-2">
+        <div class="col-md-12">
+            <form action="/alumnos/filter" method="GET" class="form-inline d-flex justify-content-center">
+              <div class="pm-container" style="display: grid; grid-template-columns: 1fr 1fr; grid-gap: 5px;">
+                <div class="col-xs-6 mr-3">
+                  <label class="sr-only" for="inNombre">Nombre</label>
+                  <input type="text" class="form-control mb-2 mr-sm-2" name="inNombre" placeholder="Nombre" >
+                </div>
+                <div class="col-xs-6">
+                  <label class="sr-only" for="inNombre">Apellido</label>
+                  <input type="text" class="form-control mb-2 mr-sm-2" name="inApellido" placeholder="Apellido" >
+                </div>
+                <div class="col-xs-6 mr-3">
+                  <label class="sr-only" for="inNombre">Telefono</label>
+                  <input type="text" class="form-control mb-2 mr-sm-2" name="inTelefono" placeholder="Telefono" >
+                </div>
+                <div class="col-xs-6">
+                  <label class="sr-only" for="inNombre">Fecha Inscripcion</label>
+                  <input autocomplete="off" class="form-control mb-2 mr-sm-2" name="inFecha" placeholder="yyyy/mm/dd" >
+                </div>
+              </div>
+                <button type="submit" class="btn btn-outline-success mb-2">Buscar</button>
+              </form>
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <div class="col-md-12">
+          <div class="table-responsive table-striped table-sm">
+            <table class="table table-lg" style="font-size: 0.8em !important">
+              <tr>
+                <th>Carne</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Padre Asociado</th>
+                <th>Telefono</th>
+                <th>Fecha Inscripcion</th>
+                <th>Opcion</th>
+                
+              </tr>
+              <%
+                for(var i=0; i<=data.length-1; i++){
+                  var obj = data[i];
+              %>
+              <tr>
+                <% for(var reg in obj){ %> 
+                    <td name="<%- obj.ID_ALUMNO%>"><%- obj[reg]%></td> 
+                <% } %>
+                  <td class="d-print-none d-flex justify-content-center">
+                    <a onclick="Update('<%- obj.ID_ALUMNO%>')" class="btn btn-outline-primary text-primary btn-sm mr-1">Editar</a>
+                  </td>  
+    
+              </tr>
+              <% } %> 
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Alumno</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                  <label>Carne</label>
+                  <input readonly type="text" name="carne" id="carne" class="form-control" placeholder="Carne">
+                </div>
+                <div class="form-group">
+                  <label>Nombre</label>
+                  <input type="text" name="Nombre" id="Nombre" class="form-control" placeholder="Nombre ">
+                </div>
+                <div class="form-group">
+                  <label>Apellido</label>
+                  <input type="text" name="Apellido" id="Apellido" class="form-control" placeholder="Apellido ">
+                </div>
+                <div class="form-group" id="grp-padre">
+                  <label>Padre Asociado</label>
+                  <input type="text" name="Padre" id="Padre" class="form-control" placeholder="Padre ">
+                </div>
+                <div class="form-group" id="grp-tel">
+                  <label>Telefono</label>
+                  <input type="number" name="Telefono" id="Telefono" class="form-control" placeholder="Telefono ">
+                </div>
+                <div class="form-group" id="grp-fec">
+                  <label>Fecha Inscripcion</label>
+                  <input readonly type="text" name="Fecha" id="Fecha" class="form-control" placeholder="Fecha ">
+                </div>
+                
+                <div class="form-group d-flex justify-content-center">
+                  <button id="btnSubmit" class="btn btn-primary">Actualizar</button>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> 
+
+      
+
+    <%- include ../includes/footer -%>
+    <%- include ../includes/scripts -%>
+    <script src="/javascripts/main/scr_alumnos.js"></script>
+  </body>
+</html>
+
+
+
