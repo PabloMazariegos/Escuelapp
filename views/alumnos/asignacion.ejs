@@ -36,23 +36,15 @@
       </div>
       <div class="row mt-2">
         <div class="col-md-12">
-          <form action="/alumnos/filter" method="GET" class="form-inline d-flex justify-content-center">
+          <form action="/alumnos/asignacion/filter" method="GET" class="form-inline d-flex justify-content-center">
               <div class="pm-container" style="display: grid; grid-template-columns: 1fr 1fr; grid-gap: 5px;">
-                  <div class="">
-                    <label class="sr-only" for="inCarne">Carne</label>
-                    <input type="text" class="form-control mb-2 mr-sm-2" name="inCarne" placeholder="Carné" >
-                  </div>
-                  <div class="">
-                    <label class="sr-only" for="inNombre">Nombre</label>
-                    <input type="text" class="form-control mb-2 mr-sm-2" name="inNombre" placeholder="Nombre" >
-                  </div>
-                  <div class="">
-                    <label class="sr-only" for="inApellido">Apellido</label>
-                    <input type="text" class="form-control mb-2 mr-sm-2" name="inApellido" placeholder="Apellido" >
-                  </div>
                   <div class="">
                     <label class="sr-only" for="inGrado">Grado</label>
                     <input type="text" class="form-control mb-2 mr-sm-2" name="inGrado" placeholder="Grado" >
+                  </div>
+                  <div class="">
+                    <label class="sr-only" for="inGrado">Seccion</label>
+                    <input type="int" class="form-control mb-2 mr-sm-2" name="inSeccion" placeholder="Grado" >
                   </div>
                 </div>
                 <div class="">
@@ -108,15 +100,16 @@
                 </div>
                 <div class="form-group">
                   <label>Nombre</label>
-                  <input type="text" name="Nombre" id="Nombre" class="form-control" placeholder="Nombre ">
+                  <input readonly type="text" name="Nombre" id="Nombre" class="form-control" placeholder="Nombre ">
                 </div>
                 <div class="form-group">
                   <label>Apellido</label>
-                  <input type="text" name="Apellido" id="Apellido" class="form-control" placeholder="Apellido ">
+                  <input readonly type="text" name="Apellido" id="Apellido" class="form-control" placeholder="Apellido ">
                 </div>
                 <div class="form-group" id="grp-padre">
                   <label>Grado</label>
                   <select class="form-control" name="Grado" id="Grado">
+                    <option value="0">Sin Asignar</option>
                     <option value="1">Primero</option>
                     <option value="2">Segundo</option>
                     <option value="3">Tercero</option>
