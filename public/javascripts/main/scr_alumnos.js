@@ -38,7 +38,7 @@ const Asignar = (id)=>{
   CARNE   .value= row[0].innerText;    
   NOMBRE  .value= row[1].innerText;  
   APELLIDO.value= row[2].innerText;
-  alert(row[3].innerText)
+
   switch(row[3].innerText){
     case 'PRIMERO':
       GRADO   .value= "1";
@@ -64,7 +64,6 @@ const Asignar = (id)=>{
     break;
 
   }
-    alert(GRADO.value)
 
   document.getElementById('btnSubmit').addEventListener('click', ()=>{
     var con= false
