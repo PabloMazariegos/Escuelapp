@@ -52,24 +52,24 @@
                       </div>
                     </div>
 
-                    <div class="card text-white bg-info" onclick="javascript: href='main/ajustesgenerales'">
-                      <div class="card-body">
-                        <h5 class="card-title">Ajustes Generales</h5>
-                        <p class="card-text">Ajustes generales de toda la aplicacion.</p>
-                      </div>
-                    </div>
-
                     <div class="card text-white bg-danger" onclick="javascript: href='main/ingresonotas'">
                       <div class="card-body">
                         <h5 class="card-title">Ingreso de notas</h5>
                         <p class="card-text">Ingresa notas por grado o por alumnos</p>
                       </div>
                     </div>
+
+                    <div class="card text-white bg-secondary" onclick="location.href='/asistencia'">
+                      <div class="card-body">
+                        <h5 class="card-title">Asistencia</h5>
+                        <p class="card-text">Ingresa asistencia por alumnos</p>
+                      </div>
+                    </div>
                 <% } %>
 
                 <!--INGRESA NOTAS-->
                 <% if (lvl == 1) {%> 
-                    <div class="card text-white bg-danger" onclick="javascript: href='main/ingresonotas'">
+                    <div class="card text-white bg-danger" onclick="location.href='/asistencia'">
                       <div class="card-body">
                         <h5 class="card-title">Ingreso de notas</h5>
                         <p class="card-text">Ingresa notas por grado o por alumnos</p>

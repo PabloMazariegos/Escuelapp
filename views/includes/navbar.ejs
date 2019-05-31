@@ -12,32 +12,31 @@
 
           <div class="d-md-flex">
             <div class="navbar-nav">
-              <div class="nav-item"><a href="/main" class="nav-link">HOME</a></div>
+              <div class="nav-item"><a href="/main" class="nav-link">Home</a></div>
             </div>
 
             <div class="navbar-nav">
             <% if (lvl == 0) { %>
-                <div class="nav-item"><a onclick="location.href='/personal'"      class="nav-link">PERSONAL</a></div>
-                <div class="nav-item"><a href="main/maestros"                     class="nav-link">MAESTROS</a></div>
-                <div class="nav-item"><a onclick="location.href='/alumnos'"       class="nav-link">ALUMNOS</a></div>
-                <div class="nav-item"><a onclick="location.href='/inscripciones'" class="nav-link">INSCRIPCIONES</a></div>
-                <div class="nav-item"><a href="main/ajustesgenerales"             class="nav-link">AJUSTES GENERALES</a></div>
-                <div class="nav-item"><a href="main/ingresonotas"                 class="nav-link">NOTAS</a></div>
+                <div class="nav-item"><a onclick="location.href='/personal'"      class="nav-link">Personal</a></div>
+                <div class="nav-item"><a onclick="location.href='/alumnos'"       class="nav-link">Alumnos</a></div>
+                <div class="nav-item"><a onclick="location.href='/inscripciones'" class="nav-link">Inscripciones</a></div>
+                <div class="nav-item"><a onclick="location.href='/inscripciones'" class="nav-link">Asistencia</a></div>                
+                <div class="nav-item"><a href="main/ingresonotas"                 class="nav-link">Notas</a></div>
                 <% } %>
             </div>
 
             <% if (lvl==1) {%>
               <div class="navbar-nav">
-                  <div class="nav-item"><a href="main/ingresonotas" class="nav-link">NOTAS</a></div>
+                  <div class="nav-item"><a href="main/ingresonotas" class="nav-link">Notas</a></div>
               </div>
             <% } %>
 
             <div class="navbar-nav  d-sm-block d-md-none">
-              <div class="nav-item"><a href="main/ajustes" class="nav-link">AJUSTES USUARIO</a></div>
+              <div class="nav-item"><a href="main/ajustes" class="nav-link">Ajustes</a></div>
             </div>
 
             <div class="navbar-nav d-sm-block d-md-none">
-              <div class="nav-item"><a onclick="location.href='/CerrarSesion'" class="nav-link">CERRAR SESION</a></div>
+              <div class="nav-item"><a onclick="location.href='/CerrarSesion'" class="nav-link">Cerrar Sesion</a></div>
             </div>
           </div>
 
