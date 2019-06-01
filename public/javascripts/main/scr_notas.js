@@ -22,7 +22,7 @@ const Asignar = (id)=>{
 const Reporte = (id)=>{
   var row = document.getElementsByName(id);
   $.ajax({
-    url: '/notasAJAX/'+id,
+    url: 'notasAJAX/'+id,
     method: 'POST',
     responseType: 'blob'
   }).done((data)=>{

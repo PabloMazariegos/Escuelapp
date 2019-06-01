@@ -40,7 +40,7 @@
               <div class="pm-container" style="display: grid; grid-template-columns: 1fr 1fr; grid-gap: 5px;">
                   <div class="">
                     <label class="sr-only" for="inGrado">Grado</label>
-                    <input type="text" class="form-control mb-2 mr-sm-2" name="inGrado" placeholder="Grado" >
+                    <input type="text" class="form-control mb-2 mr-sm-2" name="inGrado" id="inGrado" placeholder="Grado" >
                   </div>
                   <div class="">
                     <label class="sr-only" for="inGrado">Seccion</label>
@@ -50,9 +50,13 @@
                 <div class="">
                   <button type="submit" class="btn btn-outline-success mb-2">Buscar</button>
                 </div>
+                <div class="">
+                  <a id="Reporte" onclick="Reporte()" class="btn btn-outline-success mb-2">Reporte</a>
+                </div>
             </form>
         </div>
       </div>
+      
       <div class="row mt-3">
         <div class="col-md-12">
           <div class="table-responsive table-striped table-sm">
