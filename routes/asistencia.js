@@ -86,8 +86,8 @@ router.get('/filter', (req,res)=>{
 });
 
 
-router.get('/new/:FECHA/:ID', (req, res)=>{
-  query = "INSERT INTO ASISTENCIA (FECHA, ALUMNO_ID_ALUMNO) VALUES ('"+req.params.FECHA+"',"+req.params.ID+");"
+router.get('/new/:FECHA/:ID/:IGR', (req, res)=>{
+  query = "INSERT INTO ASISTENCIA (FECHA, ALUMNO_ID_ALUMNO, CURSO_ID_CURSO) VALUES ('"+req.params.FECHA+"',"+req.params.ID+ "," + req.params.IGR+ ");"
 
   sql.query(query, (sql_err, sql_res)=>{
     if(sql_err){

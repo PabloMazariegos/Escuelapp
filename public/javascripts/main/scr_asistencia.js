@@ -1,10 +1,11 @@
 const Asistencia = (id)=>{
   var row = document.getElementsByName(id);
 
-  var FECHA=    document.getElementById('fecha')     
+  var FECHA=    document.getElementById('fecha') 
+  var curso=    document.getElementById('curso')   
 
   document.getElementById('btnSubmit').addEventListener('click', ()=>{
-    location.href = 'asistencia/new/'+FECHA.value.split('/').join('-')+'/'+row[0].innerText;
+    location.href = 'asistencia/new/'+FECHA.value.split('/').join('-')+'/'+row[0].innerText + '/'+ curso.value;
   });
 
   $('#exampleModal').modal('show')
