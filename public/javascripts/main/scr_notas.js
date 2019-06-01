@@ -26,7 +26,7 @@ const Reporte = (id)=>{
     method: 'POST',
     responseType: 'blob'
   }).done((data)=>{
-    var mywindow = window.open('', 'PRINT', 'height=800,width=600');
+    var mywindow = window.open('_blank', 'PRINT', 'height=800,width=600');
 
     mywindow.document.write('<html><head> <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">');
     mywindow.document.write('</head><body style="margin-top:50px;"> ');
@@ -39,11 +39,7 @@ const Reporte = (id)=>{
     mywindow.document.write(data);
     mywindow.document.write('</div></div></body></html>');
 
-    mywindow.document.close(); // necessary for IE >= 10
     mywindow.focus(); // necessary for IE >= 10*/
-
-    mywindow.print();
-    mywindow.close();
 
   })
 }
